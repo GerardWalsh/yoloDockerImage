@@ -154,7 +154,7 @@ int main(int argc, char** argv)
 	std::string end = ".jpg";
 	filen = filename + end;
 	std::cout << filename << std::endl;
-	imwrite(filen, frame);
+	imwrite("detection.jpg", frame);
 	loop = 0;
     }
     return 0;
