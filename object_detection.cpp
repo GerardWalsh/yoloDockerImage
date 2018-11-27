@@ -153,7 +153,7 @@ int main(int argc, char** argv)
 	//strcat(filen, "test");
 	std::string end = ".jpg";
 	filen = filename + end;
-	//std::cout << filen << std::endl;
+	std::cout << filename << std::endl;
 	imwrite(filen, frame);
 	loop = 0;
     }
