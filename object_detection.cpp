@@ -3,12 +3,15 @@
 #include <iostream>
 
 #include <string.h>
+#include <string>
+
 
 #include <opencv2/dnn.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
 
 const char* keys =
+    "{ run  r      | | Which test iteration is being run. }"
     "{ help  h     | | Print help message. }"
     "{ device      |  0 | camera device number. }"
     "{ input i     | | Path to input image or video file. Skip this argument to capture frames from a camera. }"
@@ -70,6 +73,7 @@ int main(int argc, char** argv)
     bool swapRB = parser.get<bool>("rgb");
     int inpWidth = parser.get<int>("width");
     int inpHeight = parser.get<int>("height");
+    int runNum = parser.get<int>("run");
 
     // Open file with classes names.
     if (parser.has("classes"))
@@ -149,12 +153,19 @@ int main(int argc, char** argv)
 	//std::cout << label << std::endl;
 	//q = cv::waitKey();
 
-	std::string filen;// = strcat(filen, filename);
+	//std::string filen;// = strcat(filen, filename);
 	//strcat(filen, "test");
-	std::string end = ".jpg";
-	filen = filename + end;
-	std::cout << filename << std::endl;
-	imwrite("detection.jpg", frame);
+	//std::string end = ".jpg";
+	//filen = filename + end;
+	//std::cout << filename << std::endl;
+	//std::cout << "Inference time:" << t << "ms"<< std::endl;
+	//std::cout << "Run number:" << runNum << std::endl;
+	int time = (int)t;
+	std::string s = std::to_string(time);
+	s = s + "ms" + ".jpg";
+
+	//std::cout << "Inference time:" << s << std::endl;
+	imwrite(s, frame);
 	loop = 0;
     }
     return 0;
@@ -252,15 +263,17 @@ void postprocess(Mat& frame, const std::vector<Mat>& outs, Net& net)
     std::vector<int> indices;
     NMSBoxes(boxes, confidences, confThreshold, nmsThreshold, indices);
 	//std::string filename1;
+	//Open text file
     for (size_t i = 0; i < indices.size(); ++i)
     {
         int idx = indices[i];
         Rect box = boxes[idx];
         drawPred(classIds[idx], confidences[idx], box.x, box.y,
                  box.x + box.width, box.y + box.height, frame, filename);
-	//std::cout << "Prediction"<< std::endl <<  classIds[idx] << std::endl;
+	//std::cout << "Prediction: "<< filename << std::endl;
+	//write prediction to text file
     }
-
+	//close text file
 	
 	//cv::waitKey(100);
 }
