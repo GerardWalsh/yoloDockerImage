@@ -271,7 +271,11 @@ void postprocess(Mat& frame, const std::vector<Mat>& outs, Net& net)
         Rect box = boxes[idx];
         drawPred(classIds[idx], confidences[idx], box.x, box.y,
                  box.x + box.width, box.y + box.height, frame, filename);
-	//std::cout << "Prediction: "<< filename << std::endl;
+	std::cout << filename << " centered of object x,y : "<< (box.x + (box.width)/2) << ", "<< (box.y + (box.height)/2) << std::endl;
+	cv::Point2f point;
+	point.x = (box.x + (box.width)/2);
+	point.y = (box.y + (box.height)/2);
+	cv::circle(frame, point, 5, cv::Scalar(0,0,255));
 	//write prediction to text file
     }
 	//close text file
