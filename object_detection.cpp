@@ -162,9 +162,10 @@ int main(int argc, char** argv)
 	//std::cout << "Run number:" << runNum << std::endl;
 	int time = (int)t;
 	std::string s = std::to_string(time);
-	s = s + "ms" + ".jpg";
+	s = "test" + std::to_string(runNum) + "_" + s + "ms" + ".jpg";
 
 	//std::cout << "Inference time:" << s << std::endl;
+	
 	imwrite(s, frame);
 	loop = 0;
     }
