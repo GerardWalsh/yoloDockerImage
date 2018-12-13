@@ -1,3 +1,5 @@
+mkdir testing && cd testing
+
 cp /root/../yoloDockerImage/yolo /root/../data
 
 ./yolo --config=/root/../yoloDockerImage/yolov3-tiny.cfg --model=/root/../yoloDockerImage/yolov3-tiny.weights --classes=/root/../yoloDockerImage/coco.names --width=416 --height=416 --scale=0.00392 --rgb --input=/root/../yoloDockerImage/dataset/test0.jpg --run=0
@@ -20,3 +22,6 @@ cp /root/../yoloDockerImage/yolo /root/../data
 
 rm -rf yolo
 
+cd /root/../data
+
+cp /root/../yoloDockerImage/testing /root/../data
