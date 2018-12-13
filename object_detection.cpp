@@ -112,7 +112,7 @@ int main(int argc, char** argv)
     Mat frame, blob;
     bool loop = true;
     int q = 0;
-    while (loop && !q)
+    while (loop)
     {
         cap >> frame;
         if (frame.empty())
