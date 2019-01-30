@@ -1,4 +1,4 @@
-#Building the complete inference image 
+# Building the complete inference image 
 clone the repository
 
 ## First build an OpenCV image
