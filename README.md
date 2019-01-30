@@ -27,4 +27,4 @@ From which a CLI should launch and one should call
 ./testing.sh
 ```
 
-The results, of classification on the dataset, should be stored in /home/user/dataOnHost. Make sure this folder exists on the host machine prior to deploying the inference container
+The results, of the YoloV3-tiny classifier on the dataset, should be stored in /home/user/dataOnHost. Make sure this folder exists on the host machine prior to deploying the inference container
