@@ -1,4 +1,4 @@
-FROM yolowebcam
+FROM OpenCV_3_4
 
 RUN git clone https://github.com/gerrywalsh/yoloDockerImage
 
