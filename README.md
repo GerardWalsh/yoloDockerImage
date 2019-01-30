@@ -1,6 +1,10 @@
 # Building the complete inference image 
 clone the repository
 
+'''
+git clone https://github.com/gerrywalsh/yoloDockerImage
+'''
+
 ## First build an OpenCV image
 
 ```
